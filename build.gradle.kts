@@ -19,6 +19,8 @@ dependencies {
     implementation(libs.exposed.jdbc)
     implementation(libs.h2)
     implementation(libs.postgresql)
+    implementation(libs.exposed.datetime)
+    implementation(libs.exposed.dao)
     implementation(libs.ktor.server.netty)
     implementation(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)

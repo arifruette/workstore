@@ -1,6 +1,6 @@
 package domain.model
 
-import java.time.Instant
+import kotlinx.datetime.Instant
 
 data class Work(
     val id: Long? = null,

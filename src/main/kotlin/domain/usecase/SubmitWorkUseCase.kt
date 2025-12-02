@@ -2,7 +2,7 @@ package domain.usecase
 
 import domain.model.Work
 import domain.repository.WorkRepository
-import java.time.Instant
+import kotlinx.datetime.Clock
 
 class SubmitWorkUseCase(
     private val workRepository: WorkRepository
@@ -17,7 +17,7 @@ class SubmitWorkUseCase(
             taskId = taskId,
             studentFirstName = studentFirstName,
             studentLastName = studentLastName,
-            submittedAt = Instant.now(),
+            submittedAt = Clock.System.now(),
             filePath = filePath
         )
         return workRepository.save(work)
