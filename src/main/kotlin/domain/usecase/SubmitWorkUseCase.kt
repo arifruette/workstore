@@ -1,11 +1,13 @@
 package domain.usecase
 
+import domain.client.AnalysisServiceClient
 import domain.model.Work
 import domain.repository.WorkRepository
 import kotlinx.datetime.Clock
 
 class SubmitWorkUseCase(
-    private val workRepository: WorkRepository
+    private val workRepository: WorkRepository,
+    private val analysisClient: AnalysisServiceClient
 ) {
     suspend operator fun invoke(
         taskId: Long,
@@ -20,6 +22,11 @@ class SubmitWorkUseCase(
             submittedAt = Clock.System.now(),
             filePath = filePath
         )
-        return workRepository.save(work)
+
+        val saved = workRepository.save(work)
+
+        analysisClient.analyzeWork(saved.id!!)
+
+        return saved
     }
 }
