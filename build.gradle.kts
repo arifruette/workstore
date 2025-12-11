@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "ru.ari"
-version = "0.0.1"
+version = "0.0.2"
 
 application {
     mainClass = "io.ktor.server.netty.EngineMain"
@@ -15,6 +15,7 @@ application {
 dependencies {
     implementation(libs.ktor.client)
     implementation(libs.ktor.server.core)
+    implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.exposed.core)

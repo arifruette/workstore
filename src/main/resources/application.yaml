@@ -4,7 +4,8 @@ ktor:
       - ru.ari.ApplicationKt.module
   deployment:
     port: 8080
-
+storage:
+  uploadsDir: "/data/uploads"
 db:
   driver: "org.postgresql.Driver"
   jdbcUrl: "jdbc:postgresql://db:5432/workdb"
